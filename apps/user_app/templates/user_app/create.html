@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>Create Item</title>
+   <meta charset="utf-8">
+ 	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'css/user_app.css' %}" title="Create Item">
+</head>
+<body>
+<!-- we can use the line below to see all of our data in our template -->
+  <a href="/dashboard">Home</a>
+  <a href="/logout">Logout</a>
+  <h1>Create a New Wish List Item</h1>
+  <div>
+    
+    <form method="POST" action="wish_items/create">
+    {% csrf_token %}
+    <label>Item/Product: <input id="name" type='text' name="name"></label>
+    <br>
+    <br>
+    <input class="button" type="submit" value="Add">
+    </form>
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+  	</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+	<head>
+	  <title>{{items.name}}</title>
+	   <meta charset="utf-8">
+	 	{% load staticfiles %}
+		<link rel="stylesheet" href="{% static 'css/users_app.css' %}" title="{{items.name}}">
+	</head>
+	<body>
+<!-- we can use the line below to see all of our data in our template -->
+		<div class="container">
+			<a href="/dashboard">Home</a>
+			<a href="/logout">Logout</a>
+			<h2>{{items.name}}</h2>
+			<br>
+			<br>       
+		   	<p>Users who added this product/item under their wish list:</p>
+		   	<br>
+		   	<br>
+		   	{% for user in others%}
+		   		<p>{{user.name}}</p>
+		   	{% endfor %}
+	 	</div>
+	</body>
+</html>
+
